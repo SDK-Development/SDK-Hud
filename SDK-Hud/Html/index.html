@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="player-info">
+        <img src="logo.png" alt="Server Logo" class="server-logo">
+        <div class="player-id">
+            <i class="fas fa-user"></i>
+            ID: <span class="id-value">1</span>
+        </div>
+    </div>
+    <div class="hud-container">
+        <div class="status-container">
+            <div class="health-armor">
+                <div class="stat-bar health">
+                    <i class="fas fa-heart-pulse"></i>
+                    <div class="bar"><div class="fill"></div></div>
+                    <span class="value">100%</span>
+                </div>
+                <div class="stat-bar armor">
+                    <i class="fas fa-shield"></i>
+                    <div class="bar"><div class="fill"></div></div>
+                    <span class="value">100%</span>
+                </div>
+            </div>
+    
+            <div class="status-values">
+                <div class="stat-value hunger">
+                    <i class="fas fa-utensils"></i>
+                    <span class="percentage">100%</span>
+                </div>
+                <div class="stat-value thirst">
+                    <i class="fas fa-droplet"></i>
+                    <span class="percentage">100%</span>
+                </div>
+                <div class="stat-value stamina">
+                    <i class="fas fa-person-running"></i>
+                    <span class="percentage">100%</span>
+                </div>
+                <div class="stat-value voice">
+                    <i class="fas fa-microphone"></i>
+                    <span class="percentage">100%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="vehicle-hud">
+        <div class="seatbelt" data-enabled="true">
+            <i class="fa-solid fa-bell-slash"></i>
+        </div>
+        <div class="speed-container">
+            <div class="speed-value">0</div>
+            <div class="speed-unit">KM/H</div>
+            <div class="gear">N</div>
+        </div>
+        <div class="vehicle-gauges">
+            <div class="gauge speed-gauge">
+                <div class="fill"></div>
+            </div>
+            <div class="gauge fuel-gauge">
+                <div class="fill"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

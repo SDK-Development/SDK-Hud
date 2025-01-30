@@ -1,0 +1,313 @@
+:root {
+  --health: #ff3347;
+  --armor: #699ee9;
+  --hunger: #ff9f1a;
+  --thirst: #1ac6ff;
+  --stamina: #2ecc71;
+  --voice: #e6e6e6;
+  --neon-glow: 0 0 15px;
+  --border-radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.hud-container {
+  position: fixed;
+  bottom: 3vh;
+  left: 3vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vh;
+  transition: all 0.3s ease;
+}
+
+.hud-container.in-vehicle {
+  bottom: 20vh;
+}
+
+.hud-container.radar-active {
+  bottom: 20vh;
+  left: 3vh;
+}
+
+.hud-container.radar-active .status-values {
+  flex-direction: column;
+  position: absolute;
+  right: -5vh;
+  transform: translateY(-1%);
+}
+
+.status-container {
+  background: none;
+  border-radius: 8px;
+  padding: 1.2vh;
+}
+
+.health-armor {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  margin-bottom: 15px;
+}
+
+.radar-active .health-armor {
+  margin-bottom: 0;
+  margin-top: 15px;
+}
+
+.health .fill {
+  background: rgb(240, 223, 223) !important;
+  box-shadow: 0 3px 10px rgb(196, 166, 166);
+}
+
+.stat-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.stat-bar i {
+  color: white;
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}
+
+
+.stat-bar .bar {
+  width: 180px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+
+.stat-bar .fill {
+  height: 100%;
+  width: 0%;
+  transform-origin: left;
+  transition: width 0.3s ease;
+}
+
+
+.stat-bar .value {
+  color: white;
+  margin-left: 10px;
+  min-width: 45px;
+  text-align: right;
+}
+
+.status-values {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.stat-value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  gap: 5px;
+  min-width: 40px;
+}
+
+.radar-active .status-values {
+  flex-direction: column;
+  position: absolute;
+  right: -10vh;
+  top: 75%;
+  transform: translateY(-50%);
+}
+
+.player-info {
+  position: fixed;
+  top: 2vh;
+  right: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1vh;
+}
+
+.server-logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 0.5vh;
+}
+
+.player-id {
+  color: white;
+  font-size: 1.2vh;
+  margin-right: 30px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5vh;
+  margin-top: -30px;
+  border-radius: 4px;
+}
+
+.player-id i {
+  color: var(rgb(235, 157, 157));
+}
+
+.stat-value i {
+  font-size: 16px;
+  color: white;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.percentage {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.hud-container.in-vehicle .status-values {
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+  margin-left: 20px;
+}
+
+.hud-container.radar-active .health-armor {
+  margin-top: 15px;
+}
+
+.vehicle-hud {
+  position: fixed;
+  bottom: 3vh;
+  right: 3vh;
+  padding: 1.5vh;
+  text-align: right;
+  min-width: 15vh;
+  display: none;
+  background: none;
+  border-radius: 8px;
+}
+
+.vehicle-hud.active {
+  display: block;
+}
+
+
+.speed-container {
+  margin-bottom: 1vh;
+  text-align: center;
+}
+
+.speed-value {
+  font-size: 6vh;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+.speed-unit {
+  font-size: 1.4vh;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.5vh;
+  font-weight: 500;
+}
+
+.gear {
+  font-size: 2vh;
+  color: white;
+  font-weight: 600;
+  margin: 0.8vh 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.vehicle-gauges {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8vh;
+  width: 100%;
+}
+
+.gauge {
+  height: 0.4vh;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.armor .fill {
+  background: rgb(109, 167, 255)
+}
+
+.gauge .fill {
+  height: 100%;
+  width: 0%;
+  transform-origin: left;
+  transition: width 0.3s ease;
+}
+
+.speed-gauge .fill {
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+.fuel-gauge .fill {
+  background: linear-gradient(90deg, #ff9f1a, #f1c40f);
+  box-shadow: 0 0 15px rgba(255, 159, 26, 0.5);
+}
+
+.fuel-gauge {
+  margin-top: 0.8vh;
+}
+
+.seatbelt {
+  position: absolute;
+  top: -25px;
+  right: 5px;
+  font-size: 1.5vh;
+  transition: all 0.3s ease;
+}
+
+.seatbelt:not(.active) {
+  color: #ff3347;
+}
+
+.seatbelt.active {
+  color: #2ecc71; 
+}
+
+.low {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0% { text-shadow: 0 0 5px #2ecc71; }
+  50% { text-shadow: 0 0 15px #2ecc71; }
+  100% { text-shadow: 0 0 5px #2ecc71; }
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.armor[data-value="0"] {
+  display: none;
+}
+
+.stat-bar .fill {
+  height: 100%;
+  width: 0%;
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.hunger i { color: var(--hunger); }
+.thirst i { color: var(--thirst); }
+.stamina i { color: var(--stamina); }
+.voice i { color: var(--voice); }
